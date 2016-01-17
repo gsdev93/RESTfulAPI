@@ -10,6 +10,6 @@ class Fabricante extends Model
 
 	public function vehiculos()
 	{
-		$this->hasMany('Vehiculo')
+		$this->hasMany('Vehiculo');
 	}
 }
