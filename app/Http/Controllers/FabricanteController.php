@@ -81,11 +81,13 @@ class FabricanteController extends Controller {
 
 		if($metodo === 'PATCH')
 		{
+			$bandera = false;
 			$nombre =  $request->input('nombre');
 
 			if($nombre != null && $nombre != '')
 			{
 				$fabricante->nombre = $nombre;
+				$bandera = true;
 			}
 
 			$telefono =  $request->input('telefono');
@@ -93,11 +95,18 @@ class FabricanteController extends Controller {
 			if($telefono != null && $telefono != '')
 			{
 				$fabricante->telefono = $telefono;
+				$bandera = true;
 			}
 
-			$fabricante->save();
+			if(bandera)
+			{
+				$fabricante->save();
+				return response()->json(['mensaje' => 'Fabricante editado'], 200); 
+			}
 
-			return response()->json(['mensaje' => 'Fabricante editado'], 200); 
+			return response()->json(['mensaje' => 'No se modificó ningun fabricante'], 200);
+
+			
 		}
 
 		$nombre =  $request->input('nombre');
