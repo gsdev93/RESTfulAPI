@@ -9,9 +9,6 @@ use App\Vehiculo;
 
 class VehiculoController extends Controller {
 
-
-	
-
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -21,8 +18,6 @@ class VehiculoController extends Controller {
 	{
 		return response()->json(['datos' => Vehiculo::all()], 200); 
 	}
-
-	
 
 	/**
 	 * Display the specified resource.

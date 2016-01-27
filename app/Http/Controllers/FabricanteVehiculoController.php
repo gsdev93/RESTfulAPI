@@ -12,7 +12,7 @@ class FabricanteVehiculoController extends Controller {
 
 	public function __construct()
 	{
-		$this->middleware('auth.basic', ['only' => ['store', 'update', 'destroy']]);
+		$this->middleware('auth.basic.once', ['only' => ['store', 'update', 'destroy']]);
 	}
 	/**
 	 * Display a listing of the resource.
@@ -32,15 +32,7 @@ class FabricanteVehiculoController extends Controller {
 		return response()->json(['datos' => $fabricante->vehiculos], 200);
 	}
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		//
-	}
+
 
 	/**
 	 * Store a newly created resource in storage.
@@ -68,27 +60,7 @@ class FabricanteVehiculoController extends Controller {
 		
 	}
 
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($idFabricante, $idVehiculo)
-	{
-		return "Mostrando el vehiculo ".$idVehiculo. " del fabricante ".$idFabricante;
-	}
 
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($idFabricante, $idVehiculo)
-	{
-		return "Mostrando el formulario para editar el vehiculo ".$idVehiculo. " del fabricante ".$idFabricante;
-	}
 
 	/**
 	 * Update the specified resource in storage.
